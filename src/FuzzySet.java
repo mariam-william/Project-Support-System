@@ -12,10 +12,6 @@ public class FuzzySet {
         setPoints(xValues);
     }
 
-    public FuzzySetType getType() {
-        return type;
-    }
-
     public String getName() {
         return name;
     }

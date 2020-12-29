@@ -14,10 +14,6 @@ public class Variable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public float getCrispValue() {
         return crispValue;
     }
@@ -30,19 +26,20 @@ public class Variable {
         return fuzzySets;
     }
 
-    public void setFuzzySets(ArrayList<FuzzySet> fuzzySets) {
-        this.fuzzySets = fuzzySets;
-    }
-
     public ArrayList<Float> getMembershipDegrees() {
         return membershipDegrees;
     }
 
-    public void setMembershipDegrees(ArrayList<Float> membershipDegrees) {
-        this.membershipDegrees = membershipDegrees;
-    }
-
     public void addFuzzySet(String setName, FuzzySetType type, float[]xValues){
         fuzzySets.add(new FuzzySet(setName, type, xValues));
+    }
+
+    public int getFSByName(String setName){
+        for (int i = 0; i < fuzzySets.size(); i++) {
+            if(setName.equalsIgnoreCase(fuzzySets.get(i).getName()))
+                return i;
+        }
+
+        return -1;
     }
 }
